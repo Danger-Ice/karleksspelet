@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alicia´s Kärleks lotteri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        .message {
+            font-size: 24px;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 500px;
+        }
+        .win {
+            background-color: #f0f8ff;
+            border: 2px solid #8ac7ff;
+        }
+        .try-again {
+            background-color: #eeb0b0;
+            border: 2px solid #ef3636;
+        }
+        
+        
+    
+    </style>
+</head>
+<body>
+    <h1>Kärleksspelet</h1>
+    <div id="result" class="message"></div>
+    <script>
+        // Array of possible lottery outcomes
+        const outcomes = [
+            {
+                result: "Aj Aj Aj, en JÄVLA NITLOTT.",
+                reward: "Till din tröst: Du är iallafall söt trots att du suger i spel.",
+                class: "try-again"
+            },
+            {
+                result: "Aj Aj Aj, en JÄVLA NITLOTT.",
+                reward: "Du hade ju kunnat tagit en lott med VINST på?!?",
+                class: "try-again"
+            },
+            {
+                result: "Aj Aj Aj, en JÄVLA NITLOTT.",
+                reward: "Livet leker, du har ingen vinst men du har ju mig!",
+                class: "try-again"
+            },
+            
+        ];
+
+        // Randomly select an outcome
+        const randomOutcome = outcomes[Math.floor(Math.random() * outcomes.length)];
+
+        // Display the outcome and reward
+        const message = randomOutcome.result;
+        const reward = randomOutcome.reward;
+        const outcomeClass = randomOutcome.class;
+
+        document.getElementById('result').classList.add(outcomeClass);
+        document.getElementById('result').innerHTML = `
+            <h2>${message}</h2>
+            <p class="reward">${reward}</p>
+        `;
+    </script>
+</body>
+</html>

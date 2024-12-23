@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alicia´s Kärleks lotteri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        .message {
+            font-size: 24px;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 500px;
+        }
+        .win {
+            background-color: #f0f8ff;
+            border: 2px solid #8ac7ff;
+        }
+        .medium-prize {
+            background-color: #e0ffe0;
+            border: 2px solid #77c93d;
+        }
+        .reward {
+            font-size: 40px;
+            color: #de3388;
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>Kärleksspelet</h1>
+    <div id="result" class="message"></div>
+    <script>
+        // Array of possible lottery outcomes
+        const outcomes = [
+            {
+                result: "Grattis du vann ett mellan pris!",
+                reward: "Filmkväll! DU bestämmer filmen!",
+                class: "medium-prize"
+            },
+            {
+                result: "Grattis du vann ett mellan pris!",
+                reward: "En god middag! Som jag lagar ;)",
+                class: "medium-prize"
+            },
+            {
+                result: "Grattis du vann ett mellan pris!",
+                reward: "Breakfast in bed!",  
+                class: "medium-prize"
+            },
+            {
+                result: "Grattis du vann ett mellan pris!",
+                reward: "",
+                class: "medium-prize"
+            },
+        ];
+
+        // Randomly select an outcome
+        const randomOutcome = outcomes[Math.floor(Math.random() * outcomes.length)];
+
+        // Display the outcome and reward
+        const message = randomOutcome.result;
+        const reward = randomOutcome.reward;
+        const outcomeClass = randomOutcome.class;
+
+        document.getElementById('result').classList.add(outcomeClass);
+        document.getElementById('result').innerHTML = `
+            <h2>${message}</h2>
+            <p class="reward">${reward}</p>
+        `;
+    </script>
+</body>
+</html>
